@@ -92,12 +92,6 @@ class resget extends Command {
 					$this->info('Removing temporary file ....');
 					unlink('merger.tmp');
 				}
-				else
-				{
-					file_put_contents($path.'/css'.'/'.str_replace('=', '', $this->option('name')).'-min.css',JSMin::minify(file_get_contents('merger.tmp')));
-					$this->info('Removing temporary file ....');
-					unlink('merger.tmp');
-				}
 				$this->info('All done successfully ....');
 				return;
  				
@@ -187,7 +181,7 @@ class resget extends Command {
 				}
 				foreach ($resources as $resource ) 
 				{
-					if($resource == "=jquery")
+					if($resource == "=jquery" || $resource == "=$")
 					{
 						if(!file_exists($path.'/js'.'/jquery-min.js'))
 						{
@@ -199,7 +193,7 @@ class resget extends Command {
 							$this->error("Resource already exist!");
 						}
 					}
-					if($resource == "=underscore")
+					if($resource == "=underscore" || $resource == "=_")
 					{
 						
 						if(!file_exists($path.'/js'.'/underscore-min.js'))
@@ -212,7 +206,7 @@ class resget extends Command {
 							$this->error("Resource already exist!");
 						}
 					}
-					if($resource == "=angular")
+					if($resource == "=angular" || $resource == "=ang")
 					{
 						
 						if(!file_exists($path.'/js'.'/jquery-min.js'))
@@ -225,7 +219,7 @@ class resget extends Command {
 							$this->error("Resource already exist!");
 						}	
 					}
-					if($resource == "=backbone")
+					if($resource == "=backbone" || $resource == "=bb")
 					{
 						if(!file_exists($path.'/js'.'/jquery-min.js'))
 						{
@@ -247,7 +241,7 @@ class resget extends Command {
 							$this->error("Resource already exist!");
 						}	
 					}
-					if($resource == "=bootstrap3")
+					if($resource == "=bootstrap3" || $resource == "=bt3")
 					{
 						if(!file_exists($path.'/css'.'/bootstrap-min.css'))
 						{
@@ -264,7 +258,7 @@ class resget extends Command {
 							$this->error("Resource already exist!");
 						}
 					}
-					if($resource == "=fontawesome")
+					if($resource == "=fontawesome" || $resource == "=fa")
 					{
 						if(!file_exists($path.'/css'.'/font-awesome-min.css'))
 						{

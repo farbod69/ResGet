@@ -3,7 +3,7 @@ ResGet
 
 Small Laravel 4 artisan command that downloads famous JavaScripts and StyleSheets to your project
 
-*Resget now can minify your scripts and stylesheets for you.
+*Resget now can minify your scripts for you.
 
 Installation
 ============
